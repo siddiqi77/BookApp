@@ -2,7 +2,7 @@ package com.Book.Model;
 
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class LoginDetails {
 
 	private String email;

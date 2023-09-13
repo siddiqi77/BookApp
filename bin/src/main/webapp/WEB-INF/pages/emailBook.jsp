@@ -8,10 +8,6 @@
       background-size: cover;
     }
 
-    h1{
-        color: red;
-    }
-
     label {
         color: aliceblue;
         margin-left: 5%;
@@ -32,8 +28,8 @@
 </style>
 
 <Body>
-    <h1> this service is currently unavailable...coming soon</h1><br><br>
-    <h2 >Send Book Information to Mail Id </h2><hr><br><br>
+<h1> This Service is currently unavailable ....Please wait for sometime for this to active. </h1><br><br>
+    <h2>Send Book Information to Mail Id </h2><hr><br><br>
     <form action="emailBook" method="post">
         <label >Enter Book Id :</label>
 <input type="text" name="bookName" id="id"><br><br>

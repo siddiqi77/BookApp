@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.Book.Entity.AddBookEntity;
-import com.Book.Entity.UserEntity;
+//import com.Book.Entity.UserEntity;
 import com.Book.Model.UserDto;
-import com.Book.Repository.UserRepository;
+//import com.Book.Repository.UserRepository;
 import com.Book.Service.BookService;
-import com.Book.Service.UserService;
+//import com.Book.Service.UserService;
 
 @Controller
 @RequestMapping("/book")
@@ -25,8 +25,8 @@ public class BookController {
 	@Autowired
 	BookService service;
 	
-	@Autowired
-	UserService userService;
+	//@Autowired
+	//UserService userService;
 
 	@GetMapping("/login")
 	public String login() {
@@ -140,35 +140,32 @@ public class BookController {
 		return "updated";
 	}
 	
-	@PostMapping("/saveUser")
-	public String saveUserDetails(@ModelAttribute UserEntity userEntity, Model model,
-			UserDto userDto, BindingResult result) {
-		
-		UserEntity existingUser = userService.findUserByEmail(userDto.getEmail());
+	@GetMapping("/uploadBook")
+	public String uploadBook() {
 
-        if(existingUser != null && existingUser.getEmail() != null && !existingUser.getEmail().isEmpty()){
-            result.rejectValue("email", null,
-                    "There is already an account registered with the same email");
-        }
-        if(result.hasErrors()){
-            model.addAttribute("user", userDto);
-            return "/login";
-        }
-		Integer id =userService.saveUser(userEntity);
-		if(id != null) {
-		model.addAttribute("message", "User " +id+ "registered successfully");
-			return "login";
-		}
-		else {
-			model.addAttribute("message", "User not able to register...Please add correct details");
-			return "login";
-		}
+		return "upload";
 	}
 	
-	 @GetMapping("/users")
-	    public String users(Model model){
-	        List<UserDto> users = userService.findAllUsers();
-	        model.addAttribute("users", users);
-	        return "users";
-	    }
+	
+	
+	/*
+	 * @PostMapping("/saveUser") public String saveUserDetails(@ModelAttribute
+	 * UserEntity userEntity, Model model, UserDto userDto, BindingResult result) {
+	 * 
+	 * UserEntity existingUser = userService.findUserByEmail(userDto.getEmail());
+	 * 
+	 * if(existingUser != null && existingUser.getEmail() != null &&
+	 * !existingUser.getEmail().isEmpty()){ result.rejectValue("email", null,
+	 * "There is already an account registered with the same email"); }
+	 * if(result.hasErrors()){ model.addAttribute("user", userDto); return "/login";
+	 * } Integer id =userService.saveUser(userEntity); if(id != null) {
+	 * model.addAttribute("message", "User " +id+ "registered successfully"); return
+	 * "login"; } else { model.addAttribute("message",
+	 * "User not able to register...Please add correct details"); return "login"; }
+	 * }
+	 * 
+	 * @GetMapping("/users") public String users(Model model){ List<UserDto> users =
+	 * userService.findAllUsers(); model.addAttribute("users", users); return
+	 * "users"; }
+	 */
 }
