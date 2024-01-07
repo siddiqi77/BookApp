@@ -2,6 +2,7 @@ package com.Book.Controller;
 
 import java.util.List;
 
+import org.apache.el.stream.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -70,7 +71,7 @@ public class BookController {
 
 	@PostMapping("/create")
 	public String createBook(@ModelAttribute AddBookEntity addBokEntity, Model model) {
-
+			
 		Long id = service.createBook(addBokEntity);
 		model.addAttribute("id", id);
 		if (id != null) {
@@ -105,7 +106,7 @@ public class BookController {
 
 		Long id = addBookEntity.getBookId();
 		System.out.println(id);
-		List<AddBookEntity> bookList = service.findByBookId(id);
+		java.util.Optional bookList = service.findByBookId(id);
 
 		System.out.println(bookList.toString());
 		model.addAttribute("bookList", bookList);
@@ -125,7 +126,7 @@ public class BookController {
 	public String modifyBook(@ModelAttribute AddBookEntity addBookEntity, Model model) {
 		Long id = addBookEntity.getBookId();
 		System.out.println(id);
-		List<AddBookEntity> bookList = service.findByBookId(id);
+		java.util.Optional bookList = service.findByBookId(id);
 
 		System.out.println(bookList.toString());
 		model.addAttribute("bookList", bookList);
