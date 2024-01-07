@@ -3,6 +3,7 @@ package com.Book.Entity;
 
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -73,8 +74,8 @@ public class AddBookEntity {
 		return pDate;
 	}
 
-	public void setpDate(Date pDate) {
-		this.pDate = pDate;
+	public void setpDate(Date localDate) {
+		this.pDate = localDate;
 	}
 
 	

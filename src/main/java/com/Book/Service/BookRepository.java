@@ -2,6 +2,7 @@ package com.Book.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -14,7 +15,7 @@ public interface BookRepository extends JpaRepository<AddBookEntity, Long> {
 	
 	public List<AddBookEntity> findByBookNameContaining(String bookName);
 	
-	public List<AddBookEntity> findByBookId(Long bookId);
+	public Optional findByBookId(Long bookId);
 	
 	public List<AddBookEntity> findByBookType(String bookType);
 	

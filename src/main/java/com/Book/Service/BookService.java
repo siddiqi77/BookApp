@@ -2,7 +2,7 @@ package com.Book.Service;
 
 import java.util.Date;
 import java.util.List;
-
+import java.util.Optional;
 
 import com.Book.Entity.AddBookEntity;
 
@@ -14,7 +14,7 @@ public interface BookService {
 	
 	public List<AddBookEntity> findByBookNameContaining(String bookName);
 	
-	public List<AddBookEntity> findByBookId(Long bookId);
+	public Optional findByBookId(Long bookId);
 	
 	public List<AddBookEntity> findByBookType(String bookType);
 	
