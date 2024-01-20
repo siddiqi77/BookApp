@@ -16,6 +16,8 @@ public class BookServiceImpl implements BookService {
 	@Autowired
 	BookRepository repo;
 	
+
+	private final static String entityCacheData = "";
 	public HashMap<Integer, String> loadDataFromCache() {
 		//logic
 		return null;
