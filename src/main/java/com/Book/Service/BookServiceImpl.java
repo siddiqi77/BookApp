@@ -1,6 +1,7 @@
 package com.Book.Service;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -14,6 +15,11 @@ public class BookServiceImpl implements BookService {
 
 	@Autowired
 	BookRepository repo;
+	
+	public HashMap<Integer, String> loadDataFromCache() {
+		//logic
+		return null;
+	}
 
 	@Override
 	public Long createBook(AddBookEntity abe) {
