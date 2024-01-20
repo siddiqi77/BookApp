@@ -14,6 +14,8 @@ public class BookServiceImpl implements BookService {
 
 	@Autowired
 	BookRepository repo;
+	
+	private final static String entityCacheData = "";
 
 	@Override
 	public Long createBook(AddBookEntity abe) {
